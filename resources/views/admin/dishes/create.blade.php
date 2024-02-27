@@ -26,6 +26,12 @@
                 <textarea class="form-control" id="description" name="description" rows="3"></textarea>
             </div>
             <div class="form-group">
+                <label for="ingredients">Ingredients</label>
+                <textarea class="form-control" name="ingredients" id="ingredients" cols="30" rows="10"
+                    placeholder="enter ingredients">
+                </textarea>
+            </div>
+            <div class="form-group">
                 <label for="price">Dish price</label>
                 <input type="text" class="form-control" id="price" name="price" placeholder="Enter dish price"> €
             </div>
@@ -35,12 +41,6 @@
                     <option value="1">Visible</option>
                     <option value="0">Not visible</option>
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="ingredients">Ingredients</label>
-                <textarea class="form-control" name="ingredients" id="ingredients" cols="30" rows="10"
-                    placeholder="enter ingredients">
-                </textarea>
             </div>
             <button type="submit" class="btn btn-primary">Create Dish</button>
         </form>

@@ -8,11 +8,11 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" enctype="multipart/form-data" action="{{ route('register') }}">
                         @csrf
 
                         <div class="mb-4 row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name*') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address*') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password*') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password*') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -63,7 +63,7 @@
 
 
                         <div class="mb-4 row">
-                            <label for="restaurant_name" class="col-md-4 col-form-label text-md-right">Restaurant name</label>
+                            <label for="restaurant_name" class="col-md-4 col-form-label text-md-right">Restaurant name*</label>
 
                             <div class="col-md-6">
                                 <input id="restaurant_name" type="text" class="form-control" name="restaurant_name" value="{{ old('restaurant_name') }}" required>
@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="restaurant_address" class="col-md-4 col-form-label text-md-right">Restaurant address</label>
+                            <label for="restaurant_address" class="col-md-4 col-form-label text-md-right">Restaurant address*</label>
 
                             <div class="col-md-6">
                                 <input id="restaurant_address" type="text" class="form-control" name="restaurant_address" value="{{ old('restaurant_address') }}" required>
@@ -79,7 +79,7 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="vat" class="col-md-4 col-form-label text-md-right">VAT</label>
+                            <label for="vat" class="col-md-4 col-form-label text-md-right">VAT*</label>
 
                             <div class="col-md-6">
                                 <input id="vat" type="text" class="form-control" name="vat" value="{{ old('vat') }}" required>
@@ -87,10 +87,10 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="restaurant_picture" class="col-md-4 col-form-label text-md-right">Resturant Picture URL</label>
+                            <label for="restaurant_picture" class="col-md-4 col-form-label text-md-right">Resturant Picture*</label>
 
                             <div class="col-md-6">
-                                <input id="restaurant_picture" type="text" class="form-control" name="restaurant_picture" value="{{ old('restaurant_picture') }}" required>
+                                <input id="restaurant_picture" type="file" class="form-control" name="restaurant_picture" accept=".png, .jpg, .jpeg"  required>
                             </div>
                         </div>
 

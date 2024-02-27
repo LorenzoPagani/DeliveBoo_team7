@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
             'restaurant_name' => ['required', 'string', 'max:255'],
             'restaurant_address' => ['required', 'string', 'max:255'],
             'vat' => ['required', 'string', 'min:11', 'max:11'],
-            'restaurant_picture' => ['required', 'string'],
+            'restaurant_picture' => ['required'],
             'restaurant_description' => ['string'],
             'tags' => []
         ]);
@@ -61,7 +61,13 @@ class RegisteredUserController extends Controller
         $ristorante->picture = $request->restaurant_picture;
         $ristorante->description = $request->restaurant_description;
         $ristorante->save();
-
+        if ($request->hasFile('restaurant_picture')) {
+            $restaurant_picture = $request->file('restaurant_picture');
+            $fileName = $restaurant_picture->getClientOriginalName();
+            $restaurant_picture->storeAs('uploads', $fileName); // You can customize the path as needed
+            // You can also save file details to the database or perform any other action
+            $formData['file_path'] = $fileName; // Assuming you want to save the file path to the database
+        }
         $ristorante->types()->sync($request->tags);
 
         Auth::login($user);

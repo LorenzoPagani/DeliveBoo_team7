@@ -39,10 +39,20 @@ class RestaurantController extends Controller
         $new_Restaurant->user_id = Auth::id();
         $new_Restaurant->fill($request->all());
 
+        if ($request->hasFile('restaurant_picture')) {
+            $restaurant_picture = $request->file('restaurant_picture');
+            $fileName = $restaurant_picture->getClientOriginalName();
+            $restaurant_picture->storeAs('uploads', $fileName); // You can customize the path as needed
+            // You can also save file details to the database or perform any other action
+            $formData['file_path'] = $fileName; // Assuming you want to save the file path to the database
+        }
+
+
         $new_Restaurant->save();
         if ($request->types) {
             $new_Restaurant->types()->attach($request->types);
         }
+
 
         return redirect()->route('admin.restaurants.index');
     }
